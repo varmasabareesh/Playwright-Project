@@ -1,0 +1,44 @@
+{
+    "validUser": {
+        "username": "user_",
+        "password": "sab_pass"
+    },
+    "signup": {
+        "username": "user_",
+        "password": "sab_pass"
+    },
+    "addToCart": {
+        "category": "Phones",
+        "product": "Samsung galaxy s6"
+    },
+    "invalidUsername": {
+        "username": "invaliduser_",
+        "password": "sab_pass",
+        "message": "User does not exist."
+    },
+    "invalidPassword": {
+        "password": "wrong_pass",
+        "message": "Wrong password."
+    },
+    "invalidBoth": {
+        "username": "invaliduser_",
+        "password": "wrong_pass",
+        "message": "User does not exist."
+    },
+    "phonePurchase": {
+        "category": "Phones",
+        "product": "Nokia lumia 1520"
+    },
+    "monitorPurchase": {
+        "category": "Monitors",
+        "product": "Apple monitor 24"
+    },
+    "shippingDetails": {
+        "name": "Test User",
+        "country": "Germany",
+        "city": "Berlin",
+        "card": "4111111111111111",
+        "month": "10",
+        "year": "2026"
+    }
+}
