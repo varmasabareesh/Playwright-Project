@@ -12,42 +12,49 @@ test.beforeAll(async({browser})=>{
     await signup.goto()
     await signup.validSignup(validUsername,validPassword)
     await page.close()
+    console.log("Created user: "+validUsername)
 })
 
 test('1. Sign Up -> Enter Data -> Click Sign Up',async({page})=>{
     const signup=new POManager(page).getSignupPage()
     await signup.goto()
     await signup.validSignup(testData.signup.username+Date.now(),testData.signup.password)
+    console.log("Sign up successful")
 })
 
 test('2. Sign Up -> Enter Data -> Click Close',async({page})=>{
     const signup=new POManager(page).getSignupPage()
     await signup.goto()
     await signup.closeSignup(testData.signup.username+Date.now(),testData.signup.password)
+    console.log("Sign up popup closed")
 })
 
 test('3. Login with valid credentials',async({page})=>{
     const login=new POManager(page).getLoginPage()
     await login.goto()
     await login.validLogin(validUsername,validPassword)
+    console.log("Logged in as: "+validUsername)
 })
 
 test('4. Login with invalid username and valid password',async({page})=>{
     const login=new POManager(page).getLoginPage()
     await login.goto()
     await login.invalidLogin(testData.invalidUsername.username+runId,testData.invalidUsername.password,testData.invalidUsername.message)
+    console.log("Login failed as expected: "+testData.invalidUsername.message)
 })
 
 test('5. Login with valid username and invalid password',async({page})=>{
     const login=new POManager(page).getLoginPage()
     await login.goto()
     await login.invalidLogin(validUsername,testData.invalidPassword.password,testData.invalidPassword.message)
+    console.log("Login failed as expected: "+testData.invalidPassword.message)
 })
 
 test('6. Login with invalid username and invalid password',async({page})=>{
     const login=new POManager(page).getLoginPage()
     await login.goto()
     await login.invalidLogin(testData.invalidBoth.username+runId,testData.invalidBoth.password,testData.invalidBoth.message)
+    console.log("Login failed as expected: "+testData.invalidBoth.message)
 })
 
 test('7. Login -> Select a product -> Add to Cart -> Click OK',async({page})=>{
@@ -59,6 +66,7 @@ test('7. Login -> Select a product -> Add to Cart -> Click OK',async({page})=>{
 
     await pomanager.getDashboard().selectProduct(testData.addToCart.category,testData.addToCart.product)
     await pomanager.getCart().addToCart()
+    console.log("Added to cart: "+testData.addToCart.product)
 })
 
 test('8. Login -> Phones product -> Add to Cart -> OK -> Add details -> Purchase',async({page})=>{
@@ -80,6 +88,7 @@ test('8. Login -> Phones product -> Add to Cart -> OK -> Add details -> Purchase
     await shippingDetails.purchase()
 
     await pomanager.getSummary().verifyPurchase()
+    console.log("Purchased: "+testData.phonePurchase.product)
 })
 
 test('9. Login -> Monitors product -> Add to Cart -> OK -> Add details -> Purchase',async({page})=>{
@@ -101,6 +110,7 @@ test('9. Login -> Monitors product -> Add to Cart -> OK -> Add details -> Purcha
     await shippingDetails.purchase()
 
     await pomanager.getSummary().verifyPurchase()
+    console.log("Purchased: "+testData.monitorPurchase.product)
 })
 
 test('10. Login with valid credentials -> Logout',async({page})=>{
@@ -108,4 +118,5 @@ test('10. Login with valid credentials -> Logout',async({page})=>{
     await login.goto()
     await login.validLogin(validUsername,validPassword)
     await login.logout()
+    console.log("Logged out: "+validUsername)
 })
