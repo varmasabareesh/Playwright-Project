@@ -1,48 +1,39 @@
-[
-    {
-        "testCase": "validUser",
+{
+    "validUser": {
         "username": "user_",
         "password": "sab_pass"
     },
-    {
-        "testCase": "signup",
+    "signup": {
         "username": "user_",
         "password": "sab_pass"
     },
-    {
-        "testCase": "addToCart",
+    "addToCart": {
         "category": "Phones",
         "product": "Samsung galaxy s6"
     },
-    {
-        "testCase": "invalidUsername",
+    "invalidUsername": {
         "username": "invaliduser_",
         "password": "sab_pass",
         "message": "User does not exist."
     },
-    {
-        "testCase": "invalidPassword",
+    "invalidPassword": {
         "password": "wrong_pass",
         "message": "Wrong password."
     },
-    {
-        "testCase": "invalidBoth",
+    "invalidBoth": {
         "username": "invaliduser_",
         "password": "wrong_pass",
         "message": "User does not exist."
     },
-    {
-        "testCase": "phonePurchase",
+    "phonePurchase": {
         "category": "Phones",
         "product": "Nokia lumia 1520"
     },
-    {
-        "testCase": "monitorPurchase",
+    "monitorPurchase": {
         "category": "Monitors",
         "product": "Apple monitor 24"
     },
-    {
-        "testCase": "shippingDetails",
+    "shippingDetails": {
         "name": "Test User",
         "country": "Germany",
         "city": "Berlin",
@@ -50,4 +41,4 @@
         "month": "10",
         "year": "2026"
     }
-]
+}
