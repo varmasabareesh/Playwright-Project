@@ -7,14 +7,14 @@ class Dashboard{
 
     async selectCategory(category)
     {
-        await this.page.getByRole("link", { name: category }).click();
+        await this.page.getByText(category, { exact: true }).click();
     }
 
     async selectProduct(category,product)
     {
         await this.selectCategory(category);
-        await this.page.getByRole("link", { name: product }).click();
-        await expect(this.page.getByRole("heading", { name: product })).toBeVisible();
+        await this.page.getByText(product, { exact: true }).click();
+        await expect(this.page.getByText(product, { exact: true })).toBeVisible();
     }
 }
 module.exports=Dashboard

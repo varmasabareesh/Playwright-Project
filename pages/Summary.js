@@ -3,8 +3,8 @@ const { expect } = require("@playwright/test");
 class Summary{
     constructor(page){
         this.page=page
-        this.message=page.getByRole("heading", { name: "Thank you for your purchase!" })
-        this.okbtn=page.getByRole("button", { name: "OK" })
+        this.message=page.getByText("Thank you for your purchase!")
+        this.okbtn=page.getByText("OK", { exact: true })
     }
 
     async verifyPurchase()

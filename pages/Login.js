@@ -8,7 +8,7 @@ class Login{
         this.username=this.form.getByTestId("loginusername")
         this.password=this.form.getByTestId("loginpassword")
         this.loginbtn=this.form.getByRole("button", { name: "Log in" })
-        this.logoutlnk=page.getByRole("link", { name: "Log out" })
+        this.logoutlnk=page.getByText("Log out")
     }
 
     async goto()

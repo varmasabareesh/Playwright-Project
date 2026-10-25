@@ -3,9 +3,9 @@ const { expect } = require("@playwright/test");
 class Cart{
     constructor(page){
         this.page=page
-        this.addtocartbtn=page.getByRole("link", { name: "Add to cart" })
-        this.cartlnk=page.getByRole("link", { name: "Cart", exact: true })
-        this.placeorderbtn=page.getByRole("button", { name: "Place Order" })
+        this.addtocartbtn=page.getByText("Add to cart")
+        this.cartlnk=page.getByText("Cart", { exact: true })
+        this.placeorderbtn=page.getByText("Place Order", { exact: true })
     }
 
     async addToCart()
@@ -20,7 +20,7 @@ class Cart{
     async openCart(product)
     {
         await this.cartlnk.click();
-        await expect(this.page.getByRole("cell", { name: product }).first()).toBeVisible();
+        await expect(this.page.getByText(product).first()).toBeVisible();
     }
 
     async placeOrder()

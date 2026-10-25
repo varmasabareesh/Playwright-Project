@@ -10,7 +10,7 @@ class ShippingDetails{
         this.card=this.form.getByLabel("Credit card:")
         this.month=this.form.getByLabel("Month:")
         this.year=this.form.getByLabel("Year:")
-        this.purchasebtn=this.form.getByRole("button", { name: "Purchase" })
+        this.purchasebtn=this.form.getByText("Purchase")
     }
 
     async enterDetails(name,country,city,card,month,year)
